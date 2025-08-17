@@ -42,37 +42,39 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
   }
 
-  // --- Smoke tests (console only) ---
-  function test(name, fn) {
-    try {
-      fn();
-      console.log('%cPASS', 'color:#62d26f', name);
-    } catch (e) {
-      console.error('FAIL', name, e);
+  // --- Smoke tests (console only, opt-in) ---
+  const DEBUG_TESTS = /(^|[?&])debug=1(&|$)/.test(location.search) || localStorage.getItem('debug') === '1';
+  if (DEBUG_TESTS) {
+    function test(name, fn) {
+      try {
+        fn();
+        console.log('%cPASS', 'color:#62d26f', name);
+      } catch (e) {
+        console.error('FAIL', name, e);
+      }
     }
+
+    test('code element exists', () => {
+      if (!document.getElementById('code')) throw new Error('missing #code');
+    });
+
+    test('install command looks correct', () => {
+      const el = document.getElementById('install');
+      const txt = (el?.textContent || '').trim();
+      if (!/^pip install /.test(txt)) throw new Error('install string wrong: ' + txt);
+    });
+
+    test('Get started link points to getting-started', () => {
+      const href = document.querySelector('a.btn.primary')?.getAttribute('href') || '';
+      if (!/getting-started\/?$/.test(href)) throw new Error('bad href: ' + href);
+    });
+
+    test('logo mark exists', () => {
+      if (!document.querySelector('.logo-mark')) throw new Error('missing .logo-mark');
+    });
   }
-
-  test('code element exists', () => {
-    if (!document.getElementById('code')) throw new Error('missing #code');
-  });
-
-  test('install command looks correct', () => {
-    const el = document.getElementById('install');
-    const txt = (el?.textContent || '').trim();
-    if (!/^pip install /.test(txt)) throw new Error('install string wrong: ' + txt);
-  });
-
-  test('Get started link points to getting-started', () => {
-    const href = document.querySelector('a.btn.primary')?.getAttribute('href') || '';
-    if (!/getting-started\/?$/.test(href)) throw new Error('bad href: ' + href);
-  });
-
-  test('logo mark exists', () => {
-    if (!document.querySelector('.logo-mark')) throw new Error('missing .logo-mark');
-  });
 });
 
 // Year (safe to set outside DOMContentLoaded)
 const y = document.getElementById('year');
 if (y) y.textContent = new Date().getFullYear();
-
