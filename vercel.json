@@ -14,14 +14,13 @@
     }
   ],
   "redirects": [
-    { "source": "/docs", "destination": "https://lydakis.github.io/alloy/", "permanent": true },
-    { "source": "/docs/(.*)", "destination": "https://lydakis.github.io/alloy/:splat", "permanent": true },
+    { "source": "/docs", "destination": "https://docs.alloy.fyi/", "permanent": true },
+    { "source": "/docs/:path*", "destination": "https://docs.alloy.fyi/:path*", "permanent": true },
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [{ "type": "host", "value": "docs.alloy.fyi" }],
-      "destination": "https://lydakis.github.io/alloy/:splat",
+      "destination": "https://lydakis.github.io/alloy/:path*",
       "permanent": true
     }
   ]
 }
-

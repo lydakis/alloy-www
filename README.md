@@ -1,18 +1,13 @@
 Alloy Website
 ================
 
-Static promotional site for the Alloy Python library.
+Minimal static site for Alloy (typed LLM functions for Python).
 
-Local preview
-- Open `index.html` directly in a browser. No build step.
-
-Deploy to Vercel
-- Connect this repository in Vercel and choose “Framework Preset: Other”.
-- Build command: none (leave empty). Output directory: `.` (the project root).
-- Add a custom domain (e.g., `alloy.fyi`) if desired.
+Links
+- Live: https://alloy.fyi
+- Docs: https://docs.alloy.fyi
 
 Notes
-- `index.html` is fully self-contained (inline CSS, no dependencies).
-- GitHub stars are fetched client-side (best-effort; not required).
-- Open Graph image is set to `https://alloy.fyi/og.png`; update to your domain or add an image at `/og.png` after the domain is configured.
-
+- Single-file site (`index.html`) with inline CSS/JS; no build step.
+- `vercel.json` adds headers and convenient redirects for `/docs/*`.
+- 404 page is playful but lightweight; robots.txt and sitemap.xml included.
