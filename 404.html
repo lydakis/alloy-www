@@ -3,33 +3,57 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Not Found — Alloy</title>
+  <title>Python for logic. 404 for links. — Alloy</title>
   <meta name="robots" content="noindex" />
   <style>
-    :root { --bg-1:#0b0f22; --bg-2:#121637; --txt:#e8eaf6; --muted:#a9b0c9; --brand:#7aa2ff; --accent:#54f0d1; --card:rgba(255,255,255,0.06); --border:rgba(255,255,255,0.12); }
+    :root { --bg-1:#0b0f22; --bg-2:#121637; --txt:#e8eaf6; --muted:#a9b0c9; --brand:#7aa2ff; --accent:#54f0d1; --card:rgba(255,255,255,0.06); --border:rgba(255,255,255,0.12); --shadow:0 10px 30px rgba(0,0,0,0.35); }
     *{ box-sizing:border-box } html,body{ height:100% }
     body{ margin:0; font:16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--txt);
       background: radial-gradient(1200px 600px at 10% -10%, rgba(122,162,255,0.25), transparent 60%),
                  radial-gradient(900px 500px at 100% 0%, rgba(84,240,209,0.18), transparent 60%),
                  linear-gradient(180deg, var(--bg-1), var(--bg-2)); }
-    .container{ max-width:720px; margin:0 auto; padding:40px 20px; text-align:center }
-    h1{ margin:0 0 8px; font-size:clamp(28px,5vw,44px) }
-    p{ color:var(--muted) }
-    a.btn{ display:inline-block; margin:10px 6px; padding:12px 16px; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--txt); font-weight:600 }
+    .container{ max-width:820px; margin:0 auto; padding:40px 20px; text-align:center }
+    h1{ margin:0 0 8px; font-size:clamp(28px,5.2vw,48px); letter-spacing:-.3px }
+    p{ color:var(--muted); margin:0 0 14px }
+    .row{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:10px }
+    a.btn{ display:inline-block; padding:12px 16px; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--txt); font-weight:600 }
     a.btn.primary{ background:linear-gradient(135deg,var(--brand),var(--accent)); color:#0b0f22; border:none }
+    /* tiny code card */
+    .code-card{ border:1px solid var(--border); background:var(--card); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); margin:18px auto 6px; text-align:left; max-width:640px }
+    .code-top{ display:flex; align-items:center; justify-content:space-between; padding:8px 10px; border-bottom:1px solid var(--border); background:rgba(0,0,0,0.2) }
+    .dots{ display:flex; gap:6px }
+    .dots span{ width:10px; height:10px; border-radius:50%; background:#ff6b6b }
+    .dots span:nth-child(2){ background:#f7d060 }
+    .dots span:nth-child(3){ background:#62d26f }
+    pre{ margin:0; padding:14px; overflow:auto; font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace }
+    code{ color:#d7e3ff }
+    .kw{ color:#7aa2ff } .fn{ color:#54f0d1 } .str{ color:#ffdb86 } .cm{ color:#93a2c3 }
+    @media (max-width:520px){ .container{ padding:28px 16px } pre{ font-size:13px } }
   </style>
   <meta http-equiv="refresh" content="8; url=/" />
 </head>
 <body>
   <div class="container">
-    <h1>Page not found</h1>
-    <p>The page you’re looking for doesn’t exist. You’ll be redirected to the homepage shortly.</p>
-    <div>
+    <h1>Python for logic. 404 for links.</h1>
+    <p>This page doesn’t exist. Try Home or Docs.</p>
+
+    <div class="code-card" role="img" aria-label="Missing page example in code">
+      <div class="code-top">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <small class="cm">examples/where_am_i.py</small>
+      </div>
+      <pre><code>
+<span class="kw">from</span> alloy <span class="kw">import</span> <span class="fn">ask</span>
+
+<span class="kw">print</span>(<span class="fn">ask</span>(<span class="str">"Where am I?"</span>))  <span class="cm"># → "A missing page. Head home or read the docs."</span>
+      </code></pre>
+    </div>
+
+    <div class="row">
       <a class="btn primary" href="/">Home</a>
-      <a class="btn" href="https://lydakis.github.io/alloy/">Docs</a>
+      <a class="btn" href="https://docs.alloy.fyi/">Docs</a>
     </div>
   </div>
 </body>
 <script>/* noop */</script>
 </html>
-
