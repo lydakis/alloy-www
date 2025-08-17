@@ -79,7 +79,7 @@
     .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,1,1); white-space:nowrap; border:0 }
   </style>
 </head>
-<body>
+<body itemscope itemtype="https://schema.org/WebSite">
   <div class="container">
     <header>
       <div class="logo">
@@ -101,6 +101,15 @@
       </nav>
     </header>
 
+    <!-- Microdata for WebSite (hidden but accessible) -->
+    <div class="sr-only">
+      <span itemprop="name">Alloy</span>
+      <link itemprop="url" href="https://alloy.fyi/" />
+      <link itemprop="sameAs" href="https://github.com/lydakis/alloy" />
+      <link itemprop="sameAs" href="https://x.com/lydakisg" />
+    </div>
+
+    <main id="main" role="main">
     <section class="hero">
       <div>
         <span class="pill"><span class="dot"></span> Typed commands. Predictable outputs. Minimal tools.</span>
@@ -149,6 +158,8 @@
         <p class="muted">Just <code>@command</code>, <code>ask</code>, and <code>@tool</code>. Plain Python; no framework bloat.</p>
       </div>
     </section>
+
+    </main>
 
     <footer>
       <div>© <span id="year"></span> Alloy. Built by engineers who hate hidden state.</div>
