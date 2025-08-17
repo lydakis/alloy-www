@@ -50,6 +50,8 @@
     nav a{ margin-left:16px; color:var(--muted) }
     nav .cta{ color:var(--txt); padding:10px 14px; border:1px solid var(--border); border-radius:10px }
     nav .btn{ background:linear-gradient(135deg,var(--brand),var(--accent)); color:#0b0f22; font-weight:700; border:none }
+    /* Ensure header buttons are the same size, especially on mobile */
+    nav .cta, nav .btn{ display:inline-flex; align-items:center; justify-content:center; height:38px; padding:0 14px; border-radius:10px; line-height:1; white-space:nowrap }
     nav .btn:hover{ filter:brightness(1.05) }
     .hero{ display:grid; grid-template-columns:1.05fr .95fr; gap:26px; align-items:center; margin-top:26px }
     .title{ font-size:clamp(32px,4.5vw,54px); line-height:1.05; margin:10px 0 14px; letter-spacing:-.5px }
