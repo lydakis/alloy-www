@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alloy — Python for logic. English for intelligence.</title>
+  <meta name="description" content="Alloy is a minimal Python library for typed LLM commands with predictable outputs, simple tools, and provider-agnostic backends." />
+  <meta name="theme-color" content="#0f1226" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Alloy — Python for logic. English for intelligence." />
+  <meta property="og:description" content="Typed commands. Predictable outputs. Minimal tools. Works with OpenAI, Anthropic, Gemini, and Ollama." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://alloy.fyi/" />
+  <meta property="og:image" content="/og.png" />
+  <meta property="og:image:alt" content="Alloy — Python for logic. English for intelligence." />
+  <link rel="canonical" href="https://alloy.fyi/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@lydakis" />
+
+  <!-- Inline SVG favicon for fast loads -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237aa2ff'/%3E%3Cstop offset='1' stop-color='%2354f0d1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M12 50 L32 10 L52 50' stroke='url(%23g)' stroke-width='8' stroke-linecap='round' fill='none'/%3E%3Cpath d='M22 36 H42' stroke='url(%23g)' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <style>
+    :root { --bg-1:#0b0f22; --bg-2:#121637; --txt:#e8eaf6; --muted:#a9b0c9; --brand:#7aa2ff; --accent:#54f0d1; --card:rgba(255,255,255,0.06); --border:rgba(255,255,255,0.12); --shadow:0 10px 30px rgba(0,0,0,0.35); }
+    *{ box-sizing:border-box } html,body{ height:100% }
+    body{ margin:0; font:16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"; color:var(--txt);
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(122,162,255,0.25), transparent 60%),
+                 radial-gradient(900px 500px at 100% 0%, rgba(84,240,209,0.18), transparent 60%),
+                 linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      background-attachment:fixed; }
+    a{ color:inherit; text-decoration:none }
+    .container{ max-width:1080px; margin:0 auto; padding:28px 20px 60px }
+    header{ display:flex; align-items:center; justify-content:space-between; gap:16px }
+    .logo{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px }
+    .logo-badge{ width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,var(--brand),var(--accent)); box-shadow:0 4px 18px rgba(122,162,255,.35) }
+    nav a{ margin-left:16px; color:var(--muted) }
+    nav .cta{ color:var(--txt); padding:10px 14px; border:1px solid var(--border); border-radius:10px }
+    nav .btn{ background:linear-gradient(135deg,var(--brand),var(--accent)); color:#0b0f22; font-weight:700; border:none }
+    nav .btn:hover{ filter:brightness(1.05) }
+    .hero{ display:grid; grid-template-columns:1.05fr .95fr; gap:26px; align-items:center; margin-top:26px }
+    .title{ font-size:clamp(32px,4.5vw,54px); line-height:1.05; margin:10px 0 14px; letter-spacing:-.5px }
+    .tag{ color:var(--muted); font-size:18px }
+    .pill{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border); border-radius:999px; color:var(--muted); backdrop-filter:blur(6px); background:var(--card) }
+    .cta-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px }
+    .btn{ padding:12px 16px; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--txt); font-weight:600 }
+    .btn.primary{ background:linear-gradient(135deg,var(--brand),var(--accent)); color:#0b0f22; border:none }
+    .btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow) }
+    .stat{ color:var(--muted); font-size:14px; margin-top:10px; display:flex; align-items:center; gap:10px }
+    .dot{ width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow: 0 0 16px var(--accent) }
+    .code-card{ border:1px solid var(--border); background:var(--card); border-radius:16px; overflow:hidden; box-shadow:var(--shadow) }
+    .code-top{ display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border-bottom:1px solid var(--border); background:rgba(0,0,0,0.2) }
+    .dots{ display:flex; gap:6px } .dots span{ width:10px; height:10px; border-radius:50%; background:#ff6b6b } .dots span:nth-child(2){ background:#f7d060 } .dots span:nth-child(3){ background:#62d26f }
+    pre{ margin:0; padding:18px; overflow:auto; font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace }
+    code{ color:#d7e3ff } .ghost{ color:#93a2c3 } .kw{ color:#7aa2ff } .fn{ color:#54f0d1 } .str{ color:#ffdb86 } .op{ color:#b7c0de }
+    .grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:24px }
+    .card{ border:1px solid var(--border); background:var(--card); border-radius:14px; padding:16px; box-shadow:var(--shadow) }
+    .card h3{ margin:0 0 6px; font-size:18px }
+    .muted{ color:#a9b0c9 }
+    footer{ margin-top:40px; padding-top:18px; border-top:1px solid var(--border); color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap }
+    @media (max-width:880px){ .hero{ grid-template-columns:1fr } .grid{ grid-template-columns:1fr } }
+    @media (max-width:480px){ .container{ padding:20px 16px 40px } .tag{ font-size:16px } pre{ font-size:13px } .cta-row .btn{ flex:1; text-align:center } }
+    @media (prefers-reduced-motion: reduce){ .btn:hover{ transform:none; box-shadow:none } }
+    .logo-mark{ width:28px; height:28px; display:block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <svg class="logo-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Alloy logo">
+          <defs>
+            <linearGradient id="gradA" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7aa2ff"/>
+              <stop offset="1" stop-color="#54f0d1"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 50 L32 10 L52 50" fill="none" stroke="url(#gradA)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M22 36 H42" fill="none" stroke="url(#gradA)" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <a href="/" aria-label="Alloy Home">Alloy</a>
+      </div>
+      <nav>
+        <a class="cta" href="https://github.com/lydakis/alloy" target="_blank" rel="noopener">GitHub <span id="stars">★</span></a>
+        <a class="btn" href="https://docs.alloy.fyi/" rel="noopener">Docs</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <span class="pill"><span class="dot"></span> Typed commands. Predictable outputs. Minimal tools.</span>
+        <h1 class="title">Python for logic.<br/>English for intelligence.</h1>
+        <p class="tag">Declare typed functions, call any LLM, and get dependable results — without a framework.</p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="https://lydakis.github.io/alloy/getting-started/" rel="noopener">Get started →</a>
+          <button class="btn" id="copy">Copy pip install</button>
+          <a class="btn" href="https://github.com/lydakis/alloy" target="_blank" rel="noopener">Star on GitHub</a>
+        </div>
+        <div class="stat">Install: <code id="install">pip install alloy-ai</code></div>
+        <div class="stat"><span class="dot" aria-hidden="true"></span><span>MIT-friendly, docs-first, minimal runtime.</span></div>
+      </div>
+
+      <div class="code-card" role="img" aria-label="Alloy quickstart code">
+        <div class="code-top">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <small class="muted">examples/basic_usage.py</small>
+        </div>
+        <pre><code id="code">
+<span class="kw">from</span> alloy <span class="kw">import</span> <span class="fn">command</span>, <span class="fn">ask</span>
+
+<span class="op">@</span><span class="fn">command</span>(output=<span class="kw">float</span>)
+<span class="kw">def</span> <span class="fn">extract_price</span>(text: <span class="kw">str</span>) -&gt; <span class="kw">str</span>:
+    <span class="kw">return</span> <span class="str">f"Extract the price (number only) from: {text}"</span>
+
+<span class="kw">print</span>(<span class="fn">extract_price</span>(<span class="str">"This item costs $49.99."</span>))
+<span class="kw">print</span>(<span class="fn">ask</span>(<span class="str">"Say hi"</span>))
+</code></pre>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Typed by default</h3>
+        <p class="muted">Return types enforced with provider schema or guardrails; clear, actionable errors.</p>
+      </div>
+      <div class="card">
+        <h3>One API, any model</h3>
+        <p class="muted">OpenAI, Anthropic, Gemini, Ollama — switch with a model string or env var.</p>
+      </div>
+      <div class="card">
+        <h3>Small API surface</h3>
+        <p class="muted">Just <code>@command</code>, <code>ask</code>, and <code>@tool</code>. Plain Python; no framework bloat.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Alloy. Built by engineers who hate hidden state.</div>
+      <div>Docs → <a href="https://docs.alloy.fyi/" rel="noopener">docs.alloy.fyi</a></div>
+    </footer>
+  </div>
+
+  <script>
+    // Run after DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      // GitHub stars (best‑effort)
+      fetch('https://api.github.com/repos/lydakis/alloy')
+        .then(r => r.ok ? r.json() : null)
+        .then(d => { if (d && d.stargazers_count) document.getElementById('stars').textContent = '★ ' + d.stargazers_count.toLocaleString(); })
+        .catch(() => {});
+
+      // Copy install
+      const copyBtn = document.getElementById('copy');
+      const installEl = document.getElementById('install');
+      copyBtn?.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(installEl.textContent.trim());
+          copyBtn.textContent = 'Copied ✓';
+          setTimeout(() => (copyBtn.textContent = 'Copy install'), 1500);
+        } catch (_) { /* ignore */ }
+      });
+
+      // Type‑in reveal (respect reduced motion)
+      const codeEl = document.getElementById('code');
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced) {
+        const lines = codeEl.innerHTML.trim().split('\n');
+        codeEl.innerHTML = '';
+        let i = 0;
+        (function step(){
+          if (i <= lines.length) {
+            codeEl.innerHTML = lines.slice(0, i).join('\n');
+            i++;
+            requestAnimationFrame(step);
+          }
+        })();
+      }
+
+      // --- Smoke tests (console only) ---
+      function test(name, fn) {
+        try { fn(); console.log('%cPASS','color:#62d26f', name); }
+        catch (e) { console.error('FAIL', name, e); }
+      }
+
+      test('code element exists', () => {
+        if (!document.getElementById('code')) throw new Error('missing #code');
+      });
+
+      test('install command looks correct', () => {
+        const txt = document.getElementById('install').textContent.trim();
+        if (!/^pip install /.test(txt)) throw new Error('install string wrong: ' + txt);
+      });
+
+      test('Get started link points to getting-started', () => {
+        const href = document.querySelector('a.btn.primary')?.getAttribute('href') || '';
+        if (!/getting-started\/?$/.test(href)) throw new Error('bad href: ' + href);
+      });
+
+      test('logo mark exists', () => {
+        if (!document.querySelector('.logo-mark')) throw new Error('missing .logo-mark');
+      });
+    });
+
+    // Year (safe to set outside DOMContentLoaded)
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
