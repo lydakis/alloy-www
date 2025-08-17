@@ -28,6 +28,8 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <link rel="preconnect" href="https://api.github.com" crossorigin>
+  <link rel="dns-prefetch" href="https://api.github.com">
 
   <!-- Inline SVG favicon for fast loads -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237aa2ff'/%3E%3Cstop offset='1' stop-color='%2354f0d1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M12 50 L32 10 L52 50' stroke='url(%23g)' stroke-width='8' stroke-linecap='round' fill='none'/%3E%3Cpath d='M22 36 H42' stroke='url(%23g)' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E" />
@@ -61,13 +63,13 @@
     .btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow) }
     .stat{ color:var(--muted); font-size:14px; margin-top:10px; display:flex; align-items:center; gap:10px }
     .dot{ width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow: 0 0 16px var(--accent) }
-    .code-card{ border:1px solid var(--border); background:var(--card); border-radius:16px; overflow:hidden; box-shadow:var(--shadow) }
+    .code-card{ border:1px solid var(--border); background:var(--card); background-color:#0f1226; border-radius:16px; overflow:hidden; box-shadow:var(--shadow) }
     .code-top{ display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border-bottom:1px solid var(--border); background:rgba(0,0,0,0.2) }
     .dots{ display:flex; gap:6px } .dots span{ width:10px; height:10px; border-radius:50%; background:#ff6b6b } .dots span:nth-child(2){ background:#f7d060 } .dots span:nth-child(3){ background:#62d26f }
     pre{ margin:0; padding:18px; overflow:auto; font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace }
     code{ color:#d7e3ff } .ghost{ color:#93a2c3 } .kw{ color:#7aa2ff } .fn{ color:#54f0d1 } .str{ color:#ffdb86 } .op{ color:#b7c0de }
     .grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:24px }
-    .card{ border:1px solid var(--border); background:var(--card); border-radius:14px; padding:16px; box-shadow:var(--shadow) }
+    .card{ border:1px solid var(--border); background:var(--card); background-color:#0f1226; border-radius:14px; padding:16px; box-shadow:var(--shadow) }
     .card h3{ margin:0 0 6px; font-size:18px }
     .muted{ color:#a9b0c9 }
     footer{ margin-top:40px; padding-top:18px; border-top:1px solid var(--border); color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap }
