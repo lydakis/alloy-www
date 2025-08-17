@@ -43,7 +43,9 @@
     .tag{ color:var(--muted); font-size:18px }
     .pill{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border); border-radius:999px; color:var(--muted); backdrop-filter:blur(6px); background:var(--card) }
     .cta-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px }
-    .btn{ padding:12px 16px; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--txt); font-weight:600 }
+    .btn{ padding:12px 16px; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--txt); font-weight:600; display:inline-flex; align-items:center; justify-content:center; letter-spacing:.2px; line-height:1.2; white-space:nowrap; cursor:pointer; }
+    a.btn{ text-decoration:none; font: inherit }
+    button.btn{ -webkit-appearance:none; appearance:none; font: inherit; }
     .btn.primary{ background:linear-gradient(135deg,var(--brand),var(--accent)); color:#0b0f22; border:none }
     .btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow) }
     .stat{ color:var(--muted); font-size:14px; margin-top:10px; display:flex; align-items:center; gap:10px }
