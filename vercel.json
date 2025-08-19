@@ -5,23 +5,77 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
-        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data: https:; script-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=()"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data: https:; script-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+        }
       ]
     }
   ],
   "redirects": [
-    { "source": "/docs", "destination": "https://docs.alloy.fyi/", "permanent": true },
-    { "source": "/docs/:path*", "destination": "https://docs.alloy.fyi/:path*", "permanent": true },
+    {
+      "source": "/docs",
+      "destination": "https://docs.alloy.fyi/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:path*",
+      "destination": "https://docs.alloy.fyi/:path*",
+      "permanent": true
+    },
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "docs.alloy.fyi" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "docs.alloy.fyi"
+        }
+      ],
       "destination": "https://lydakis.github.io/alloy/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/llms.txt",
+      "destination": "https://docs.alloy.fyi/llms.txt",
+      "permanent": true
+    },
+    {
+      "source": "/llms-full.txt",
+      "destination": "https://docs.alloy.fyi/llms-full.txt",
+      "permanent": true
+    },
+    {
+      "source": "/.well-known/linkset",
+      "destination": "https://docs.alloy.fyi/.well-known/linkset",
+      "permanent": true
+    },
+    {
+      "source": "/.well-known/linkset.json",
+      "destination": "https://docs.alloy.fyi/.well-known/linkset.json",
       "permanent": true
     }
   ]
