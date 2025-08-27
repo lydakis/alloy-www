@@ -51,7 +51,7 @@
     header{ display:flex; align-items:center; justify-content:space-between; gap:16px }
     .logo{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px }
     .logo-badge{ width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,var(--brand),var(--accent)); box-shadow:0 4px 18px rgba(122,162,255,.35) }
-    nav a{ margin-left:16px; color:var(--muted) }
+    nav a{ margin-left:12px; color:var(--muted) }
     nav .cta{ color:var(--txt); padding:10px 14px; border:1px solid var(--border); border-radius:10px }
     nav .btn{ background:linear-gradient(135deg,var(--brand),var(--accent)); color:#0b0f22; font-weight:700; border:none }
     /* Ensure header buttons are the same size, especially on mobile */
@@ -107,6 +107,7 @@
       <nav>
         <a class="cta" href="https://github.com/lydakis/alloy" target="_blank" rel="noopener">GitHub <span id="stars">★</span></a>
         <a class="btn" href="https://docs.alloy.fyi/" rel="noopener">Docs</a>
+        <a class="btn" href="https://docs.alloy.fyi/examples/" rel="noopener">Examples</a>
       </nav>
     </header>
 
@@ -137,7 +138,7 @@
       <div class="code-card" role="img" aria-label="Alloy quickstart code">
         <div class="code-top">
           <div class="dots"><span></span><span></span><span></span></div>
-          <small class="muted">examples/basic_usage.py</small>
+          <small class="muted">quickstart.py</small>
         </div>
         <pre><code id="code">
 <span class="kw">from</span> alloy <span class="kw">import</span> <span class="fn">command</span>, <span class="fn">ask</span>
