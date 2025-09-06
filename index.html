@@ -51,7 +51,9 @@
     header{ display:flex; align-items:center; justify-content:space-between; gap:16px }
     .logo{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px }
     .logo-badge{ width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,var(--brand),var(--accent)); box-shadow:0 4px 18px rgba(122,162,255,.35) }
-    nav a{ margin-left:12px; color:var(--muted) }
+    /* Make nav a flex container so items align and wrap cleanly */
+    nav{ display:flex; align-items:center; gap:12px }
+    nav a{ color:var(--muted) }
     nav .cta{ color:var(--txt); padding:10px 14px; border:1px solid var(--border); border-radius:10px }
     nav .btn{ background:linear-gradient(135deg,var(--brand),var(--accent)); color:#0b0f22; font-weight:700; border:none }
     /* Ensure header buttons are the same size, especially on mobile */
@@ -82,7 +84,7 @@
     footer{ margin-top:40px; padding-top:18px; border-top:1px solid var(--border); color:var(--muted); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap }
     @media (max-width:880px){ .hero{ grid-template-columns:1fr } .grid{ grid-template-columns:1fr } }
     @media (max-width:720px){ .cta-row{ grid-template-columns:repeat(2,minmax(0,1fr)) } }
-    @media (max-width:480px){ .container{ padding:20px 16px 40px } .tag{ font-size:16px } pre{ font-size:13px } .cta-row{ grid-template-columns:1fr } .cta-row .btn{ width:100%; text-align:center } .pill{ font-size:13.5px; padding:6px 10px } .pill .dot{ width:6px; height:6px } }
+    @media (max-width:480px){ .container{ padding:20px 16px 40px } .tag{ font-size:16px } pre{ font-size:13px } .cta-row{ grid-template-columns:1fr } .cta-row .btn{ width:100%; text-align:center } .pill{ font-size:13.5px; padding:6px 10px } .pill .dot{ width:6px; height:6px } nav{ flex-wrap:wrap; gap:8px } }
     @media (prefers-reduced-motion: reduce){ .btn:hover{ transform:none; box-shadow:none } }
     .logo-mark{ width:28px; height:28px; display:block; }
     .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,1,1); white-space:nowrap; border:0 }
