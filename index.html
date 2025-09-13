@@ -6,7 +6,6 @@
   <title>Alloy — Python for logic. English for intelligence.</title>
   <meta name="description" content="Alloy is a minimal Python library for typed LLM commands with predictable outputs, simple tools, and provider-agnostic backends." />
   <meta name="theme-color" content="#0f1226" />
-  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Alloy — Python for logic. English for intelligence." />
   <meta property="og:description" content="Typed commands. Predictable outputs. Minimal tools. Works with OpenAI, Anthropic, Gemini, and Ollama." />
   <meta property="og:type" content="website" />
@@ -31,7 +30,6 @@
   <link rel="preconnect" href="https://api.github.com" crossorigin>
   <link rel="dns-prefetch" href="https://api.github.com">
 
-  <!-- Favicons from centralized brand repo (SVG + PNG + Apple + mask-icon) -->
   <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/gh/lydakis/alloy-brand@main/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/lydakis/alloy-brand@main/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/lydakis/alloy-brand@main/favicon-16.png" />
@@ -39,24 +37,35 @@
   <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/lydakis/alloy-brand@main/safari-pinned-tab.svg" color="#0b0f22" />
 
   <style>
-    :root { --bg-1:#0b0f22; --bg-2:#121637; --txt:#e8eaf6; --muted:#a9b0c9; --brand:#7aa2ff; --accent:#54f0d1; --card:rgba(255,255,255,0.06); --border:rgba(255,255,255,0.12); --shadow:0 10px 30px rgba(0,0,0,0.35); }
+    :root {
+      --bg-1:#0b0f22; --bg-2:#121637; --txt:#e8eaf6; --muted:#a9b0c9; --brand:#7aa2ff; --accent:#54f0d1; --card:rgba(255,255,255,0.06); --border:rgba(255,255,255,0.12); --shadow:0 10px 30px rgba(0,0,0,0.35);
+      --bg-layers: radial-gradient(1200px 600px at 10% -10%, rgba(122,162,255,0.25), transparent 60%),
+                   radial-gradient(900px 500px at 100% 0%, rgba(84,240,209,0.18), transparent 60%),
+                   linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    }
     *{ box-sizing:border-box } html,body{ height:100% }
-    body{ margin:0; font:16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"; color:var(--txt);
-      background: radial-gradient(1200px 600px at 10% -10%, rgba(122,162,255,0.25), transparent 60%),
-                 radial-gradient(900px 500px at 100% 0%, rgba(84,240,209,0.18), transparent 60%),
-                 linear-gradient(180deg, var(--bg-1), var(--bg-2));
-      background-attachment:fixed; }
+    html{
+      background: var(--bg-layers);
+      background-attachment: fixed;
+      background-color: var(--bg-2);
+    }
+    body{
+      margin:0;
+      min-height:100vh;
+      font:16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      color:var(--txt);
+      background: transparent;
+    }
+    @supports (-webkit-touch-callout: none){ html{ background-attachment: scroll; } }
     a{ color:inherit; text-decoration:none }
     .container{ max-width:1080px; margin:0 auto; padding:28px 20px 60px }
     header{ display:flex; align-items:center; justify-content:space-between; gap:16px }
     .logo{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px }
     .logo-badge{ width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,var(--brand),var(--accent)); box-shadow:0 4px 18px rgba(122,162,255,.35) }
-    /* Make nav a flex container so items align and wrap cleanly */
     nav{ display:flex; align-items:center; gap:12px }
     nav a{ color:var(--muted) }
     nav .cta{ color:var(--txt); padding:10px 14px; border:1px solid var(--border); border-radius:10px }
     nav .btn{ background:linear-gradient(135deg,var(--brand),var(--accent)); color:#0b0f22; font-weight:700; border:none }
-    /* Ensure header buttons are the same size, especially on mobile */
     nav .cta, nav .btn{ display:inline-flex; align-items:center; justify-content:center; height:38px; padding:0 14px; border-radius:10px; line-height:1; white-space:nowrap }
     nav .cta:hover{ transform:translateY(-1px); box-shadow:var(--shadow) }
     nav .btn:hover{ filter:brightness(1.05) }
@@ -113,7 +122,6 @@
       </nav>
     </header>
 
-    <!-- Microdata for WebSite (hidden but accessible) -->
     <div class="sr-only">
       <span itemprop="name">Alloy</span>
       <link itemprop="url" href="https://alloy.fyi/" />
