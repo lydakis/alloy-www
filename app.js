@@ -64,9 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!/^pip install /.test(txt)) throw new Error('install string wrong: ' + txt);
     });
 
-    test('Get started link points to getting-started', () => {
+    test('Get started link points to tutorial', () => {
       const href = document.querySelector('a.btn.primary')?.getAttribute('href') || '';
-      if (!/getting-started\/?$/.test(href)) throw new Error('bad href: ' + href);
+      if (!/tutorial\/?$/.test(href)) throw new Error('bad href: ' + href);
     });
 
     test('logo mark exists', () => {
